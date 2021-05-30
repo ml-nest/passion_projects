@@ -1,0 +1,4 @@
+personal_nb/
+.ipynb_checkpoints/
+debug.log
+__pycache__/
