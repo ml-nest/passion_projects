@@ -1,0 +1,1 @@
+Considering each store and class to be an input and combination to be a neuron to ba in hidden layer
