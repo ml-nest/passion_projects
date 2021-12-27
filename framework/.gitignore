@@ -1,0 +1,5 @@
+vir_env/
+.ipynb_checkpoints/
+debug.log
+__pycache__/
+input/
