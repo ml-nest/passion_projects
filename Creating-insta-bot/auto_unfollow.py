@@ -5,12 +5,12 @@ import time
 import shutil
 
 
-shutil.rmtree('config')
+shutil.rmtree("config")
 
 
 
 bot = Bot(unfollow_delay = 30)
-bot.login(username = "__shehzaadiiii__", password = "01729417185274")
+bot.login(username = "__shehzaadiiii__", password = "Bharat9417185274")
 
 following = bot.get_user_following("__shehzaadiiii__")
 i = 0

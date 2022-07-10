@@ -1,22 +1,17 @@
-# Importing packages
 from instabot import Bot
 from time import sleep
 import random
 import time
 import shutil
-import pickle
-
-from IPython.display import clear_output
 
 
-with open('skip_list.pkl', 'rb') as f:
-    skip_list = pickle.load(f)
+file_contents = open("config/skipped.txt").read()
+skip_list = file_contents.splitlines()
 
 shutil.rmtree('config')
 
 bot = Bot(follow_delay = 20, filter_users=True, filter_private_users=True)
-bot.login(username = "__shehzaadiiii__", password = "Bharat9417185274")
-clear_output()
+bot.login(username = "__shehzaadiiii__", password = "01729417185274")
 
 def unique(list1):
  
@@ -32,11 +27,10 @@ def unique(list1):
 
 
 my_following = bot.get_user_following('__shehzaadiiii__')
-my_following = my_following + bot.get_user_followers('__shehzaadiiii__')
 my_following = my_following + skip_list
 
 accounts = []
-accounts.append("devcolonyconfession")
+accounts.append("official.jhree_baba")
 
 net_follower = []
 for acc in accounts:
@@ -48,6 +42,7 @@ tobe_followed = [x for x in net_follower if x not in my_following]
 print('people to be followed : '+ str(len(tobe_followed)))
 
 old_skipped = 0
+
 for i in tobe_followed:
     bot.follow(i)
 
@@ -63,15 +58,7 @@ for i in tobe_followed:
         for element in skip_list:
             textfile.write(element + "\n")
         textfile.close()
-
-        file_contents = open("config/skipped.txt").read()
-        skip_list = file_contents.splitlines()
-
-        with open('skip_list.pkl', 'wb') as f:
-            pickle.dump(skip_list, f)
-            
-        clear_output()
-        break
+        exit()
     """
     with open('config/skipped.txt') as f:
         new_skpped = f.readlines()
