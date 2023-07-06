@@ -9,7 +9,7 @@ shutil.rmtree("config")
 
 
 
-bot = Bot(unfollow_delay = 30)
+bot = Bot(unfollow_delay = 5)
 bot.login(username = "__shehzaadiiii__", password = "Bharat9417185274")
 
 following = bot.get_user_following("__shehzaadiiii__")
@@ -22,5 +22,8 @@ for user in reversed(following[:-500]):
 		print("Unfollowed - "+str(i)+"  ", username)
 	else:
 		print("Failed to unfollow - ", username)
-	if(i >= 50):
+	if(i >= 20):
 		break
+
+
+

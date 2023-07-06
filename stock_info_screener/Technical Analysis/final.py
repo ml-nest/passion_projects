@@ -4,10 +4,10 @@ from modules.api import *
 # url = 'https://www1.nseindia.com/content/indices/ind_nifty500list.csv'
 # df1 = pd.read_csv(url)
 
-df = pd.read_excel("../MCAP31032021_0.xlsx", sheet_name="31-Mar-2021", engine="openpyxl")
+df = pd.read_excel("../MCAP31032022.xlsx", sheet_name="Sheet1", engine="openpyxl")
 df = df.loc[df['Symbol'].notna()]
-df = df[df['Sr. No.'] < 300]
-df['mcap_1000cr'] = df['Market capitalization \n(Rs in Lakhs)'].astype(int)/(100*1000)
+df = df[df['Sr No'] < 300]
+df['mcap_1000cr'] = df['Market capitalization as on March 31, 2022\n(Rs in Lakhs)'].astype(int)/(100*1000)
 
 # Filtering for mcap gt than 15 thousand cr.
 df = df[df['mcap_1000cr'] > 15]
