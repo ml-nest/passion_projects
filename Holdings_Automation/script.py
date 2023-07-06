@@ -1,10 +1,8 @@
 import pandas as pd
 import numpy as np
-from scipy.fft import register_backend
 import yfinance as yf
 from IPython.display import clear_output
-import plotly.graph_objects as go
-import plotly.io as pio
+
 
 portfolio_per = pd.read_excel('input/inputs.xlsx', engine="openpyxl",sheet_name='portfolio_per')
 cash_investments = pd.read_excel('input/inputs.xlsx', engine="openpyxl",sheet_name='cash_investments')
@@ -44,7 +42,7 @@ def data_manipulation(eq, type_df):
             'Unrealized P&L', 'Unrealized P&L Pct.'], axis=1)
         eq = pd.merge(eq,pd.read_excel('input/inputs.xlsx', engine="openpyxl",sheet_name='mf_ticker'), how='left', on='Symbol')
 
-    print(eq['ticker'])
+    print(eq[['Symbol', 'ticker']])
 
     a = eq.apply(lambda x: fun1(x['ticker']), axis=1)
     eq = pd.concat([eq,pd.DataFrame(a.tolist(), columns=['closing_price', 'Today(P&L)', 'Today(P&L%)'])], axis = 1)
@@ -57,6 +55,7 @@ def data_manipulation(eq, type_df):
     eq['p_tage'] = eq['p&l']*100/ eq['invested']
     clear_output()
     return eq
+
 
 
 eq = data_manipulation(eq, 'eq')
